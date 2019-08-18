@@ -10,8 +10,8 @@
     "request": "^2.88.0"
   },
   "devDependencies": {},
-  "start": {
-    "node web-server/src/app.js"
+  "scripts": {
+    "start": "node src/app.js"
   },
   "repository": {
     "type": "git",
