@@ -15,7 +15,6 @@ if (address) {
     })
   })
 } else {
-  debugger
   console.log('Please provide an address')
 }
 

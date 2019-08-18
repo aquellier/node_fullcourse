@@ -18,7 +18,7 @@ const product = {
   salePrice: undefined
 }
 
-const transaction = (type, { label, stock }) => {
+const transaction = (type, { label, stock } = {}) => {
   console.log(type, label, stock)
 }
 
