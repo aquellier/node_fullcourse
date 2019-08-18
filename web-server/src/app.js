@@ -41,10 +41,26 @@ app.get('/help', (req, res) => {
 })
 
 app.get('/weather', (req, res) => {
-  res.render('help', {
+  if (!req.query.address) {
+    return res.send({
+      error: 'You must provide an address'
+    })
+  }
+  res.send({
     title: 'Help page',
     name: 'Antoine Quellier',
-    helpText: 'We can help you'
+    address: req.query.address
+  })
+})
+
+app.get('/products', (req, res) => {
+  if (!req.query.search) {
+    return res.send({
+      error: 'You must provide a search term'
+    })
+  }
+  res.send({
+    products: []
   })
 })
 
