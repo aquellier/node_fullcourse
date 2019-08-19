@@ -9,7 +9,9 @@
     "path": "^0.12.7",
     "request": "^2.88.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  },
   "scripts": {
     "start": "node web-server/src/app.js",
     "dev": "nodemon web-server/src/app.js -e js,hbs"
