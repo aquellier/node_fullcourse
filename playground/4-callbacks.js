@@ -1,35 +1,26 @@
-// setTimeout(() => {
-//   console.log('Two seconds ago')
-// }, 2000)
-
-// const names = ['Antoine', 'Yasmine', 'Henri']
-// const shortnames = names.filter((name) => {
-//   return name.length <= 4
-// })
-
-// const geocode = (address, callback) => {
+// const add = (first, second, callback) => {
 //   setTimeout(() => {
-//     const data = {
-//       latitude: 0,
-//       longitude: 0
-//     }
+//     sum = first + second
 
-//     callback(data)
+//     callback(sum);
 //   }, 2000)
 // }
 
-// geocode('Paris', (data) => {
+// add(1, 4, (data) => {
 //   console.log(data)
 // })
 
-const add = (first, second, callback) => {
+const doWorkCallBack = (callback) => {
   setTimeout(() => {
-    sum = first + second
-
-    callback(sum);
+    // callback('This is error', undefined)
+    callback(undefined, 'This is success')
   }, 2000)
 }
 
-add(1, 4, (data) => {
-  console.log(data)
+doWorkCallBack((error, result) => {
+  if(error) {
+    return console.log(error)
+  }
+
+  console.log(result)
 })

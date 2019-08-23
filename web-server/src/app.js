@@ -16,6 +16,7 @@ const partialsPath = path.join(__dirname, '../templates/partials')
 app.set('view engine', 'hbs')
 app.set('views', viewsPath)
 hbs.registerPartials(partialsPath)
+
 // Setup static directory to serve
 app.use(express.static(publicDirectoryPath))
 
@@ -50,21 +51,21 @@ app.get('/weather', (req, res) => {
     })
   }
   geocode(req.query.address, (error, { latitude, longitude, location } = {}) => {
+    if(error) {
+      return res.send({ error })
+    }
+    forecast(latitude, longitude, (error, forecastData) => {
       if(error) {
         return res.send({ error })
       }
-      forecast(latitude, longitude, (error, forecastData) => {
-        if(error) {
-          return res.send({ error })
-        }
-        res.send({
-          title: 'Weather page',
-          name: 'Antoine Quellier',
-          address: req.query.address,
-          forecast: forecastData, location
-        })
+      res.send({
+        title: 'Weather page',
+        name: 'Antoine Quellier',
+        address: req.query.address,
+        forecast: forecastData, location
       })
     })
+  })
 })
 
 app.get('/products', (req, res) => {
